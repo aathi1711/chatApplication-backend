@@ -14,8 +14,9 @@ import messageRouter from './message.js'
 import chats from './chats.js'
 const app = express()
 const server = http.createServer(app)
+console.log(process.env.FE_URL)
 const io = new Server(server, {
-    cors: { origin:['https://chatapplication17.netlify.app'], methods:['GET','POST'] }, // Allow frontend access
+    cors: { origin:process.env.FE_URL, methods:['GET','POST'] }, // Allow frontend access
   });
 app.use(express.json())
 app.use(cors())
