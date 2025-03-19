@@ -15,7 +15,7 @@ import chats from './chats.js'
 const app = express()
 const server = http.createServer(app)
 const io = new Server(server, {
-    cors: { origin: process.env.FE_URL, methods:['GET','POST'] }, // Allow frontend access
+    cors: { origin:['http://localhost:5173','https://chatapplication17.netlify.app'], methods:['GET','POST'] }, // Allow frontend access
   });
 app.use(express.json())
 app.use(cors())
@@ -33,9 +33,7 @@ app.use('/chats',chats)
 const port = 8460
 io.on("connection", (socket) => {
     console.log("A user connected:", socket.id, new Date().toString());
-  
     socket.on("sendMessage", (messageData) => {
-      const {  sender, receiver } = messageData;
       socket.broadcast.emit('receiveMessage',messageData)
     });
   
