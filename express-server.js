@@ -15,7 +15,7 @@ import chats from './chats.js'
 const app = express()
 const server = http.createServer(app)
 const io = new Server(server, {
-    cors: { origin:['http://localhost:5173','https://chatapplication17.netlify.app'], methods:['GET','POST'] }, // Allow frontend access
+    cors: { origin:['https://chatapplication17.netlify.app'], methods:['GET','POST'] }, // Allow frontend access
   });
 app.use(express.json())
 app.use(cors())
