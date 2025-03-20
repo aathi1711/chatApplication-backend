@@ -12,11 +12,11 @@ import { Server } from 'socket.io'
 import sendMessage from './send.js'
 import messageRouter from './message.js'
 import chats from './chats.js'
+import readRouter from './read.js'
 const app = express()
 const server = http.createServer(app)
-console.log(process.env.FE_URL)
 const io = new Server(server, {
-    cors: { origin:process.env.FE_URL, methods:['GET','POST'] }, // Allow frontend access
+    cors: { origin:process.env.FE_URL, methods:['GET','POST'] }, 
   });
 app.use(express.json())
 app.use(cors())
@@ -31,6 +31,7 @@ app.use('/set-profile',setProfile)
 app.use('/send',sendMessage)
 app.use('/message',messageRouter)
 app.use('/chats',chats)
+app.use('/read',readRouter)
 const port = 8460
 io.on("connection", (socket) => {
     console.log("A user connected:", socket.id, new Date().toString());

@@ -21,8 +21,7 @@ setProfile.post('/',protect,upload.single('file'), async(req,res)=>{
          await cloudinary.uploader
          .upload(req.file.path)
          .then(async(result)=>
-           await User.findByIdAndUpdate(req.user.id,{profilePic:result.secure_url})
-        )
+            await User.findByIdAndUpdate(req.user.id,{profilePic:result.secure_url}))
         .catch((err)=>console.log('err',err))
         res.send({msg:'success'})
        
