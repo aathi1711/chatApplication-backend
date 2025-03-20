@@ -17,7 +17,7 @@ sendMessage.post("/",protect,startChat, async (req, res) => {
     const message = new Message({ sender, receiver, chatId:chat._id, content });
     await message.save();
     await Chat.findByIdAndUpdate(chat._id, { lastMessage: message._id });
-    res.status(201).json(message);
+    res.status(201).json({chatId:chat._id});
   } catch (error) {
     res.status(500).json({ message: "Server error", error });
   }
