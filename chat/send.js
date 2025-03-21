@@ -1,8 +1,8 @@
 import express from 'express'
-import Message from './models/messageModel.js';
-import { protect } from './middleware/authMiddleware.js';
-import startChat from './chatController.js';
-import Chat from './models/chatModel.js';
+import Message from '../models/messageModel.js';
+import { protect } from '../middleware/authMiddleware.js';
+import startChat from '../middleware/chatController.js';
+import Chat from '../models/chatModel.js';
 const sendMessage = express.Router();
 
 sendMessage.post("/",protect,startChat, async (req, res) => {

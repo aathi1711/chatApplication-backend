@@ -1,7 +1,7 @@
 import express from 'express'
-import { protect } from './middleware/authMiddleware.js';
-import Chat from './models/chatModel.js';
-import Message from './models/messageModel.js';
+import { protect } from '../middleware/authMiddleware.js';
+import Chat from '../models/chatModel.js';
+import Message from '../models/messageModel.js';
 
 const messageRouter = express.Router();
 messageRouter.get("/:chatId", protect, async (req, res) => {

@@ -1,6 +1,6 @@
 import express from "express";
-import { protect } from "./middleware/authMiddleware.js";
-import User from "./models/userModel.js";
+import { protect } from "../middleware/authMiddleware.js";
+import User from "../models/userModel.js";
 
 const SearchFriends = express.Router();
 

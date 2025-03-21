@@ -1,6 +1,6 @@
 import express from 'express'
-import { protect } from "./middleware/authMiddleware.js";
-import Message from './models/messageModel.js';
+import { protect } from "../middleware/authMiddleware.js";
+import Message from '../models/messageModel.js';
 
 const readRouter = express.Router()
 readRouter.put('/',protect,async(req, res) => {
