@@ -2,9 +2,9 @@ import express from "express";
 import { protect } from "../middleware/authMiddleware.js";
 import User from "../models/userModel.js";
 
-const SearchFriends = express.Router();
+const searchFriends = express.Router();
 
-SearchFriends.get("/", protect, async (req, res) => {
+searchFriends.get("/", protect, async (req, res) => {
    
   try {
     const { query } = req.query;
@@ -28,4 +28,4 @@ SearchFriends.get("/", protect, async (req, res) => {
   }
 });
 
-export default SearchFriends;
+export default searchFriends;

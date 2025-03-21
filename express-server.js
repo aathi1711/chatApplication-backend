@@ -6,13 +6,13 @@ import register from './Auth/register.js'
 import verifyEmail from './Auth/verify-email.js'
 import login from './Auth/login.js'
 import profile from './profile/profile.js'
-import SearchFriends from './search-friends.js'
 import setProfile from './profile/set-profile.js'
 import { Server } from 'socket.io'
-import sendMessage from './send.js'
-import messageRouter from './message.js'
-import chats from './chats.js'
-import readRouter from './read.js'
+import searchFriends from './chat/search-friends.js'
+import sendMessage from './chat/send.js'
+import messageRouter from './chat/message.js'
+import chats from './chat/chats.js'
+import readRouter from './chat/read.js'
 const app = express()
 const server = http.createServer(app)
 const io = new Server(server, {
@@ -26,7 +26,7 @@ app.use('/register',register)
 app.use('/verify-email',verifyEmail)
 app.use('/login',login)
 app.use('/profile',profile)
-app.use('/search',SearchFriends)
+app.use('/search',searchFriends)
 app.use('/set-profile',setProfile)
 app.use('/send',sendMessage)
 app.use('/message',messageRouter)
